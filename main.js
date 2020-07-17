@@ -3,8 +3,32 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+// window.addEventListener("DOMContentLoaded", event => {hideModal()});
 
+function updateHeart(event) {
+  if (event.innerHTML === EMPTY_HEART) {
+    event.parentElement.innerHTML = `Like! <span class='activated-heart like-glypth'>${FULL_HEART}</span>`;
+  }
+  else {
+    event.parentElement.innerHTML = `Like! <span class='like-glypth'>${EMPTY_HEART}</span>`;
+  }
+}
 
+function handleError() {
+  document.getElementById('modal').className = '';
+  setTimeout(hideModal, 5000)
+};
+
+function hideModal() {
+  document.getElementById('modal').className = 'hidden';
+}
+
+document.addEventListener('click', event => {
+  console.log(event.target)
+  if (event.target.parentElement.className === 'like') {
+    mimicServerCall().then(response => updateHeart(event.target)).catch(error => handleError())
+  }
+})
 
 
 //------------------------------------------------------------------------------
