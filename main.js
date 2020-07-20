@@ -4,8 +4,16 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
-
-
+mimicServerCall()
+.then(function(response) {
+  return response.json();
+})
+.then(function(json){
+  console.log("blorp")
+})
+.catch(function(error) {
+  document.getElementById("modal").classList.remove("hidden")
+});
 
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
