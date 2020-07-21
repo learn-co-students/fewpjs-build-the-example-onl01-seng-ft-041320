@@ -32,7 +32,7 @@ function addLikes(e){
     })
     // fake catch
     .catch(function(errors){
-      // make errorModal visible
+      // make errorModal visible by removing hidden class name
       errorModal.className = ""
       // make p tag inside errorModal display fake errors
       errorModal.querySelector('p').innerText = errors
@@ -45,6 +45,7 @@ function addLikes(e){
   }
 
 };
+
 // One event listener to rule them all?
 main.addEventListener('click', addLikes)
 
