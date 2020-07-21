@@ -7,8 +7,8 @@ const main = document.querySelector('body')
 const errorModal = document.getElementById('modal')
 
 function addLikes(e){
-  //since event listener is on main, checking to make sure they clicked a li
-  if (e.target.nodeName = "LI" ){
+  //since event listener is on main, checking to make sure they clicked the like li
+  if (e.target.className = "like" ){
     // the heart icon is in a span, which can be accessed this way
     let heart = e.target.firstElementChild
     // fake fetch()
