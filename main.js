@@ -23,7 +23,7 @@ function addLikes(e){
         heart.className = "activated-heart"
         // heart.style.color = 'red'
       } else {
-        // other wise the heart must be full already, make it empty
+        // otherwise the heart must be full already, make it empty
         heart.innerText = EMPTY_HEART
         // get rid of the activated-heart class name to remove styling
         heart.className = ""
@@ -32,7 +32,7 @@ function addLikes(e){
     })
     // fake catch
     .catch(function(errors){
-      // make errorModal visisble
+      // make errorModal visible
       errorModal.className = ""
       // make p tag inside errorModal display fake errors
       errorModal.querySelector('p').innerText = errors
