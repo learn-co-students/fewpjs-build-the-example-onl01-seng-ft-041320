@@ -4,9 +4,36 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 
+let likeHearts = document.querySelectorAll('.like')
+let heartGlyphs = document.querySelectorAll(".like-glyph")
 
 
+function likePost(e) {
+  e.preventDefault()
+//  debugger
+  let heartGlyph = e.target
+  mimicServerCall("randomUrl")
+  .then(function() {
+    let heartGlyph = e.target
+    if (heartGlyph.innerText == EMPTY_HEART) {
+      // debugger
+    heartGlyph.innerText = FULL_HEART
+      heartGlyph.style.color = 'red'
+    } else {
+      heartGlyph.innerText = EMPTY_HEART
+      heartGlyph.style.color = ''
+    }
+  })
+  .catch (function(error) {
+    document.getElementById("modal").className = ""
+  })
+  
+}
 
+// 
+
+document.addEventListener('click', likePost) 
+//<li class="like>"Like!<span> class="like-glyph"
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
 //------------------------------------------------------------------------------
