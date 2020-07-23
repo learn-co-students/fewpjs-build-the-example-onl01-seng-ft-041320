@@ -19,18 +19,18 @@ function likePost(e) {
       // debugger
     heartGlyph.innerText = FULL_HEART
       heartGlyph.style.color = 'red'
-    } else {
+      // debugger
+      heartGlyph.previousElementSibling.innerText = "Unlike!"
+    } else if (heartGlyph.innerText == FULL_HEART) { 
       heartGlyph.innerText = EMPTY_HEART
       heartGlyph.style.color = ''
+      heartGlyph.previousElementSibling.innerText = "Like!"
     }
   })
   .catch (function(error) {
     document.getElementById("modal").className = ""
   })
-  
 }
-
-// 
 
 document.addEventListener('click', likePost) 
 //<li class="like>"Like!<span> class="like-glyph"
