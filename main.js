@@ -6,15 +6,6 @@ const FULL_HEART = '♥'
 let error = document.getElementById('modal');
 // error.className = 'hidden';
 
-let glyphStates = {
-  "♡": "♥",
-  "♥": "♡"
-};
-
-let colorStates = {
-  "red": "",
-  "": "red"
-};
 
 let hearts = document.querySelectorAll('span.like-glyph');
 
