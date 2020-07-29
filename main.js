@@ -4,7 +4,6 @@ const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
 let error = document.getElementById('modal');
-// error.className = 'hidden';
 
 
 let hearts = document.querySelectorAll('span.like-glyph');
@@ -14,7 +13,7 @@ for (let heart of hearts) {
 }
 
 function likeHeart(e){
-  console.log(e)
+  // console.log(e)
   let heart = e.target
   mimicServerCall("url")
   .then(function(serverMessage){
@@ -25,19 +24,16 @@ function likeHeart(e){
       heart.innerText = FULL_HEART
       heart.className = 'activated-heart'
     }
-    heart.style.color = colorStates[heart.style.color]
   })
   .catch(function(errorMsg) {
-    console.log(error)
-    // alert(error);
     error.className = "";
     error.innerText = errorMsg
     setTimeout(hideModal, 5000)
   });
-  
-  function hideModal(){
-    error.className = 'hidden';
-  }
+}
+
+function hideModal(){
+  error.className = 'hidden';
 }
 
 //------------------------------------------------------------------------------
