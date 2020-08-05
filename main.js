@@ -9,13 +9,17 @@ const emptyHearts = document.querySelectorAll(".like-glyph");
 //function
 function getLikes(likeGlyph){
   console.log("made it to the function")
-  let innerLike = likeGlyph.innerText;
+  if( likeGlyph.innerText === EMPTY_HEART){
+ likeGlyph.innerText = FULL_HEART
+ likeGlyph.setAttribute("class", "activated-heart");
+ } else if(likeGlyph.innerText !== EMPTY_HEART) {likeGlyph.innerText = EMPTY_HEART
+ likeGlyph.removeAttribute("class", "activated-heart");}
   mimicServerCall(likesUrl, likeGlyph)
   .then(function(response){
     return response;
   })
   .then(function(){
-    debugger
+    return response;
     })
   .catch(function(error){
     alert("We didn't make it Captain!");
