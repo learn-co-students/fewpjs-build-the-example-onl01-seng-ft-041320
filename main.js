@@ -3,24 +3,50 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 let  likesUrl = "file:///Users/macbook/Flatiron/code/fewpjs-build-the-example-onl01-seng-ft-041320/index.html";
-const emptyHearts = document.querySelector(".like-glyph");
+const emptyHearts = document.querySelectorAll(".like-glyph");
 // Your JavaScript code goes here!
 
 //function
-function getLikes(){
-  mimicServerCall(likesUrl)
-  .then(resp => console.log(resp)) 
+function getLikes(likeGlyph){
+  console.log("made it to the function")
+  let innerLike = likeGlyph.innerText;
+  mimicServerCall(likesUrl, likeGlyph)
+  .then(function(response){
+    return response;
+  })
+  .then(function(){
+    debugger
+    })
+  .catch(function(error){
+    alert("We didn't make it Captain!");
+    console.log(error.message);
+  });
 };
 //eventListener
 
-emptyHearts.addEventListener("click", getLikes() );
+// emptyHearts.forEach(emptyHeart => console.log(emptyHeart))
 
+emptyHearts.forEach(emptyHeart => emptyHeart.addEventListener("click", (event) =>{
+    
+    
+    if(event.currentTarget.tagName === "SPAN"){
+      const likeGlyph = event.currentTarget;
+    getLikes(likeGlyph);
+    }
+  }));
+// emptyHearts.forEach(emptyHeart => emptyHeart.addEventListener("click", (event) =>{
+//   debugger
+// console.log(event.currentTarget)}))
+
+// if( likeGlyph.innerText === EMPTY_HEART){
+// likeGlyph.innerText = FULL_HEART;
+// } else if(likeGlyph.innerText !== EMPTY_HEART) {likeGlyph.innerText = EMPTY_HEART;}
 
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
 //------------------------------------------------------------------------------
 
-function mimicServerCall(url="http://mimicServer.example.com", config={}) {
+function mimicServerCall(url="http://mimicServer.example.com", config={}, likeGlyph) {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
       let isRandomFailure = Math.random() < .2
