@@ -10,10 +10,10 @@ const emptyHearts = document.querySelector(".like-glyph");
 function getLikes(){
   
   mimicServerCall(likesUrl)
-  .then(resp => resp.json()) 
-  .then(results => {
-    console.log(results)
-  })
+  .then(resp => console.log(resp)) 
+  // .then(results => {
+  //   console.log(results)
+  // })
 };
 //eventListener
 
