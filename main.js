@@ -8,12 +8,8 @@ const emptyHearts = document.querySelector(".like-glyph");
 
 //function
 function getLikes(){
-  
   mimicServerCall(likesUrl)
   .then(resp => console.log(resp)) 
-  // .then(results => {
-  //   console.log(results)
-  // })
 };
 //eventListener
 
